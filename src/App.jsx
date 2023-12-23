@@ -85,8 +85,22 @@ function App() {
 			id: crypto.randomUUID(),
 			source: '/images/IsaacCondom.png',
 			alt: 'condom balloon',
-			audioFile: '/sounds/CondomAudio.mp4',
+			audioFile: 'sounds/IsaacCondomVolumneDown.mp3',
 			caption: 'Expands',
+		},
+		{
+			id: crypto.randomUUID(),
+			source: '/images/RiceKrispy.png',
+			alt: 'Isaac sprays rice krispys',
+			audioFile: 'sounds/riceKrispyAudio.mov',
+			caption: 'Rice Krispy',
+		},
+		{
+			id: crypto.randomUUID(),
+			source: '/images/bicycleImg.png',
+			alt: 'Isaac splits for bicycles',
+			audioFile: 'sounds/haveYouSeenMyBicycle.mp3',
+			caption: 'Bicycle?',
 		},
 	]
 
@@ -229,12 +243,17 @@ const SelectedImage = styled.img`
 	object-fit: cover;
 	width: 100%;
 	max-height: 250px;
-	object-position: 50% 10%;
+	object-position: 50% 15%;
 	border-radius: 16px;
 
-	@media screen and (min-width: 800px) {
+	@media screen and (min-width: 600px) {
 		max-height: 600px;
-    object-position: 50% 20%;
+		object-position: 50% 20%;
+	}
+
+	@media screen and (min-width: 800px) {
+		max-height: 700px;
+		object-position: 50% 20%;
 	}
 `
 
