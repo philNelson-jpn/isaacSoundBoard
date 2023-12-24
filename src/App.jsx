@@ -50,7 +50,7 @@ function App() {
 			id: crypto.randomUUID(),
 			source: '/images/noLongerAtTheBar.jpeg',
 			alt: 'neckless flannel shirt isaac',
-			audioFile: '/sounds/jingleMyBells.mp3',
+			audioFile: '/sounds/JingleBellsBetterAudio.mov',
 			caption: 'Jingle Bells',
 		},
 		{
@@ -85,22 +85,36 @@ function App() {
 			id: crypto.randomUUID(),
 			source: '/images/IsaacCondom.png',
 			alt: 'condom balloon',
-			audioFile: 'sounds/IsaacCondomVolumneDown.mp3',
+			audioFile: '/sounds/IsaacCondomVolumneDown.mp3',
 			caption: 'Expands',
 		},
 		{
 			id: crypto.randomUUID(),
 			source: '/images/RiceKrispy.png',
 			alt: 'Isaac sprays rice krispys',
-			audioFile: 'sounds/riceKrispyAudio.mov',
+			audioFile: '/sounds/riceKrispyAudio.mov',
 			caption: 'Rice Krispy',
 		},
 		{
 			id: crypto.randomUUID(),
 			source: '/images/bicycleImg.png',
 			alt: 'Isaac splits for bicycles',
-			audioFile: 'sounds/haveYouSeenMyBicycle.mp3',
+			audioFile: '/sounds/haveYouSeenMyBicycle.mp3',
 			caption: 'Bicycle?',
+		},
+		{
+			id: crypto.randomUUID(),
+			source: '/images/Sylvia.png',
+			alt: 'Sylvia will be your teacher today',
+			audioFile: '/sounds/SylviaTeacherAudio.mov',
+			caption: 'Sylvia',
+		},
+		{
+			id: crypto.randomUUID(),
+			source: '/images/littleCaesarsClose.png',
+			alt: 'Do not go to Little Caesars',
+			audioFile: '/sounds/LittleCaesarsAudio.mov',
+			caption: 'Richmond KY',
 		},
 	]
 
