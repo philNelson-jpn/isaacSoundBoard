@@ -116,6 +116,20 @@ function App() {
 			audioFile: '/sounds/LittleCaesarsAudio.mov',
 			caption: 'Richmond KY',
 		},
+		{
+			id: crypto.randomUUID(),
+			source: '/images/poopEverywhere.png',
+			alt: 'Hunchback Isaac needs to poop',
+			audioFile: '/sounds/poopEverywhereAudio.mov',
+			caption: 'Everywhere',
+		},
+		{
+			id: crypto.randomUUID(),
+			source: '/images/jumpingAndScreaming.JPG',
+			alt: 'Isaac sings you happy birthday',
+			audioFile: '/sounds/happyBirthdayAudio.mov',
+			caption: 'Happy Bday',
+		},
 	]
 
 	const [selectedAudio, setSelectedAudio] = React.useState(null)
@@ -147,7 +161,7 @@ function App() {
 									alt={alt}
 									onClick={() => handleImageClick(audioFile, source)}
 								/>
-								{caption}
+								<span className='caption'>{caption}</span>
 							</span>
 						</SoundButton>
 					</ImageWrapper>
@@ -166,6 +180,60 @@ function App() {
 		</MaxWidthWrapper>
 	)
 }
+
+const MaxWidthWrapper = styled.div`
+	max-width: 750px;
+	margin: auto;
+`
+
+const SelectedImageWrapper = styled.div`
+	margin-bottom: 16px;
+`
+
+const SelectedImage = styled.img`
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 250px;
+	object-position: 50% 15%;
+	border-radius: 16px;
+
+	@media screen and (min-width: 600px) {
+		max-height: 600px;
+		object-position: 50% 20%;
+	}
+
+	@media screen and (min-width: 800px) {
+		max-height: 700px;
+		object-position: 50% 20%;
+	}
+`
+
+const Wrapper = styled.div`
+	--min-col-width: min(100px, 100%);
+	min-height: 100svh;
+	display: grid;
+	place-content: center;
+	gap: 8px;
+	grid-template-columns: repeat(auto-fill, minmax(var(--min-col-width), 1fr));
+	grid-template-rows: repeat(auto-fill, minmax(var(--min-col-width), 1fr));
+`
+
+const ImageWrapper = styled.div`
+	--outer-radius: 12px;
+	--inner-radius: 8px;
+	display: grid;
+	border-radius: var(--outer-radius);
+`
+
+const Image = styled.img`
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 100px;
+	border-radius: calc(var(--outer-radius) - var(--inner-radius));
+	object-position: 50% 10%;
+`
 
 const SoundButton = styled.button`
 	position: relative;
@@ -198,25 +266,31 @@ const SoundButton = styled.button`
 		border-radius: 8px;
 		background: linear-gradient(
 			to left,
-			hsl(34, 76%, 18%) 0%,
-			hsl(34, 76%, 38%) 8%,
-			hsl(34, 76%, 38%) 92%,
-			hsl(34, 76%, 8%) 100%
+			hsl(270, 15%, 18%) 0%,
+			hsl(270, 15%, 48%) 8%,
+			hsl(270, 15%, 68%) 92%,
+			hsl(270, 15%, 18%) 100%
 		);
 	}
 
 	& .front {
 		display: block;
 		position: relative;
-		padding: 6px 12px;
+		padding: 6px 6px;
 		border-radius: 8px;
-		font-size: 1rem;
 		color: white;
-		background: hsl(34, 48%, 28%);
+		background: hsl(270, 5%, 30%);
 		will-change: transform;
 		transform: translateY(-4px);
 		transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
-		font-size: calc(10 / 16 * 1rem);
+
+		& .caption {
+			display: block;
+			padding-inline: 0px;
+			padding-top: 4px;
+			font-size: calc(12 / 16 * 1rem);
+			font-weight: bold;
+		}
 	}
 
 	&:hover {
@@ -241,65 +315,6 @@ const SoundButton = styled.button`
 	&:focus:not(:focus-visible) {
 		outline: none;
 	}
-`
-
-const MaxWidthWrapper = styled.div`
-	max-width: 1250px;
-	margin: auto;
-`
-
-const SelectedImageWrapper = styled.div`
-	margin-bottom: 16px;
-`
-
-const SelectedImage = styled.img`
-	display: block;
-	object-fit: cover;
-	width: 100%;
-	max-height: 250px;
-	object-position: 50% 15%;
-	border-radius: 16px;
-
-	@media screen and (min-width: 600px) {
-		max-height: 600px;
-		object-position: 50% 20%;
-	}
-
-	@media screen and (min-width: 800px) {
-		max-height: 700px;
-		object-position: 50% 20%;
-	}
-`
-
-const Wrapper = styled.div`
-	--min-col-width: min(100px, 100%);
-	min-height: 100svh;
-	display: grid;
-	place-content: center;
-	gap: 12px;
-	grid-template-columns: repeat(auto-fill, minmax(var(--min-col-width), 1fr));
-	grid-template-rows: repeat(auto-fill, minmax(var(--min-col-width), 1fr));
-`
-
-const ImageWrapper = styled.div`
-	--outer-radius: 12px;
-	--inner-radius: 8px;
-	display: grid;
-	border-radius: var(--outer-radius);
-
-	& span {
-		text-align: center;
-		font-size: calc(12 / 16 * 1rem);
-	}
-`
-
-const Image = styled.img`
-	display: block;
-	object-fit: cover;
-	width: 100%;
-	height: 100px;
-	border-radius: calc(var(--outer-radius) - var(--inner-radius));
-	object-position: 50% 10%;
 `
 
 export default App
